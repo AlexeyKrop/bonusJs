@@ -1,0 +1,25 @@
+.button__register {
+  padding: 10px;
+  opacity: 50%;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  border-radius: 5px;
+}
+.button__register:hover {
+  opacity: 100;
+}
+.button__login {
+  padding: 10px;
+  opacity: 50%;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  border-radius: 5px;
+}
+.button__login:hover {
+  opacity: 100;
+}
+.user__list {
+  list-style-type: none;
+}
