@@ -3,7 +3,7 @@
 let buttonRegister = document.querySelector('.button__register'),
     buttonLogin = document.querySelector('.button__login'),
     userList = document.querySelector('.user__list'),
-    headerTitle = document.querySelector('.header__title')
+    headerTitle = document.querySelector('.header__title');
     
 
 let ArrayUsers = [
@@ -53,7 +53,7 @@ let render = function(){
     let userRemove = li.querySelector('.user__remove');
     userRemove.addEventListener('click', function(){
       ArrayUsers.splice(index, 1);
-      li.remove(li)
+      li.remove(li);
       localStorage.setItem('value', JSON.stringify(ArrayUsers)); 
       render();
   });          
@@ -64,6 +64,9 @@ let registerUser = function(){
   let userName = prompt('введите имя и фамилию');
   userName = userName.replace(/\s+/g, " ");
   userName = userName.split(" ");
+  if(userName[1] === undefined || userName[1] === ''){
+    userName[1] = 'Фамилия не указана';
+  }
   let newUser = {
     Имя: userName[0],
     Фамилия: userName[1],
@@ -71,6 +74,7 @@ let registerUser = function(){
     password: prompt('Введите пароль'),
     regdate: formatDate(new Date()),
   };
+
   ArrayUsers.push(newUser);
   localStorage.setItem('value', JSON.stringify(ArrayUsers));
   render();
@@ -85,6 +89,6 @@ buttonLogin.addEventListener('click', function(){
     if(userLogin === ArrayUsers[index]["login"] && userPassword === ArrayUsers[index]['password']){
       headerTitle.innerHTML = `привет ${ArrayUsers[index]['Имя']}`;
     }    
-  })
-})
+  });
+});
 render();
